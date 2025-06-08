@@ -5,35 +5,58 @@
 ```json
 [
   {
-    "type": "Package",
-    "name": "MyPackage",
-    "classes": [
+    "projectName":"Nombre de los cojones",
+    "package":[
       {
-        "name": "ClassName1",
-        "fields": [
-          { "name": "field1", "type": "String" },
-          { "name": "field2", "type": "int" }
-        ]
-      },
-      {
-        "name": "ClassName2",
-        "fields": [
-          { "name": "field1", "type": "boolean" },
-          { "name": "field2", "type": "double" }
-        ],
-        "relations": [
-          { "type": "one-to-many", "target": "ClassName1" }
+        "packageName":"package de los putos cojones",
+        "classes":[
+          {
+            "className":"clase1deloscojones",
+            "isEntity": true,
+            "fields":[
+              {"name":"nombrecampo1deloscojones", "type":"int", "isIdField":true,"generationStrategy":"AUTO"},
+              {"name":"nombrecampo2deloscojones", "type":"String"},
+              {"name":"nombrecampo3deloscojones", "type":"String"},
+              {"name":"nombrecampo4deloscojones", "type":"String"}
+            ],
+            "relationships":[
+              {
+                "type":"OneToMany",
+                "mappedBy":"claseXdeloscojones",
+                "cascade":["ALL"],
+                "fetch":"LAZY"
+              }
+            ]
+          },
+          {
+            "className":"clase2deloscojones",
+            "isEntity": true,
+            "fields":[
+              {"name":"nombrecampo1deloscojones", "type":"float"},
+              {"name":"nombrecampo2deloscojones", "type":"String"},
+              {"name":"nombrecampo3deloscojones", "type":"String"},
+              {"name":"nombrecampo4deloscojones", "type":"String"}
+            ],
+            "relationships":[
+              {
+                "type":"OneToMany",
+                "mappedBy":"claseYdeloscojones",
+                "cascade":["ALL"],
+                "fetch":"LAZY"
+              }
+            ]
+          }
         ]
       }
-    ]
-  },
-  {
-    "type": "Class",
-    "name": "StandaloneClass",
-    "fields": [
-      { "name": "field1", "type": "float" },
-      { "name": "field2", "type": "char" }
-    ]
+    ],
+    "class":{
+      "className":"claseSoladeloscojones",
+      "isEntity": false,
+      "fields": [
+        { "name": "field5", "type": "boolean" },
+        { "name": "field6", "type": "int" }
+      ]
+    }
   }
 ]
 ```
